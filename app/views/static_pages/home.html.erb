@@ -5,5 +5,7 @@
     This is the home page for my Members-Only App.
   </h2>
 
-  <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+  <% unless logged_in? %>
+    <%= link_to "Sign up now!", '#', class: "btn btn-lg btn-primary" %>
+  <% end %>
 </div>

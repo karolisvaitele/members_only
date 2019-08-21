@@ -12,6 +12,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
             log_in @user
+            UserMailer.with(user: @user).welcome_email.deliver_now
             redirect_to root_url
         else
             render 'new'
